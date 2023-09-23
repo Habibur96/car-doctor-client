@@ -8,7 +8,9 @@ const Navber = () => {
   const { user, SignOut } = useContext(AuthContext);
   const handleLogOut = () => {
     SignOut()
-      .then(() => {})
+      .then(() => {
+        localStorage.removeItem("car-access-token");
+      })
       .catch((error) => console.log(error));
   };
   const navItems = (
@@ -20,7 +22,6 @@ const Navber = () => {
           <>
             <Link to="/bookings">My Bookings</Link>
             <button>
-              
               <Link onClick={handleLogOut}>Log Out</Link>
             </button>
           </>
